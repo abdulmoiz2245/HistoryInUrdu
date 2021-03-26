@@ -89,7 +89,7 @@ class Admin_model extends CI_model {
 
     }
 
-    public function save_post(){
+    public function save_post($filename){
 
           $categories_id =  implode(', ', $this->input->post('categorie'));
           $data = array(
@@ -97,10 +97,11 @@ class Admin_model extends CI_model {
             'title' => $this->input->post('post_title'),
             'categorie_id' => $categories_id,
             'tags' => $this->input->post('tags'),
-            'image' => $this->input->post('post_img'),
-            'body' => $this->input->post('post_img'),
+            'admin_id' => 1,
+            'image' => $filename,
+            'body' => $this->input->post('post_body'),
             'views' => 0,
-            'num_comments' => 0,
+            'num_comment' => 0,
             'modified_at' => date('Y-m-d H:i:s', time()),
         );
         $result = $this->db->insert('posts', $data);

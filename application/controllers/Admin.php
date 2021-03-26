@@ -98,38 +98,46 @@ class Admin extends CI_Controller {
 
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
 
-            $this->form_validation->set_rules('title', 'Ttile', 'trim|required');
-            $this->form_validation->set_rules('categorie_id', 'Categore', 'trim|required');
-            $this->form_validation->set_rules('body', 'Email', 'trim|required');
-            $this->form_validation->set_rules('')
+            $this->form_validation->set_rules('post_title', 'Ttile', 'trim|required');
+            
+            $this->form_validation->set_rules('post_body', 'Body', 'trim|required');
            if ($this->form_validation->run() == FALSE)
             {
                     $data['categore'] = $this->Admin_model->get_categories();
                 $this->load->view('admin/posts/add_post',$data);
             }else{
+                $extension = pathinfo($_FILES['file_name']['name'], PATHINFO_EXTENSION);
+                $unique_no = uniqid(rand()) . time();
+                $filename = $unique_no . '.' . $extension;
 
-                $config['upload_path']          = './uploads/';
+                $target_path = "./uploads/admin/";
+                 
+                $config['upload_path']          = $target_path;
                 $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 100;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
+                $config['file_name'] = $filename;
+                $config['overwrite'] = TRUE;
+                $config['remove_spaces'] = TRUE;
 
                 $this->load->library('upload', $config);
-
-                if ( ! $this->upload->do_upload('userfile'))
+                $this->upload->initialize($config);
+                if ( !$this->upload->do_upload('file_name'))
                 {
                         $error = array('error' => $this->upload->display_errors());
 
-                        $this->load->view('upload_form', $error);
-                }
-                $result = $this->Admin_model->save_post();
-                if($result){
-                    $this->session->set_flashdata('success_message', 'Post added successfully.');
-                    redirect('admin/list-post');
+                        $this->session->set_flashdata('error_message', 'Unknwon Error Occure Contect to Abdul Moiz');
+                        $data['categore'] = $this->Admin_model->get_categories();
+                        $this->load->view('admin/posts/add_post',$data);
                 }else{
-                    $this->session->set_flashdata('error_message', 'Database error occure.');
-                    redirect('admin/list-post');
+                        $result = $this->Admin_model->save_post($filename);
+                        if($result){
+                            $this->session->set_flashdata('success_message', 'Post added successfully.');
+                            redirect('admin/list-post');
+                        }else{
+                            $this->session->set_flashdata('error_message', 'Database error occure.');
+                            redirect('admin/list-post');
+                        }
                 }
+               
             }
            
           

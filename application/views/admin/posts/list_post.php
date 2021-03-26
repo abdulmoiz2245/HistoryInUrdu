@@ -27,6 +27,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card-box">
+                    <?php  if($this->session->flashdata('success_message')): ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= $this->session->flashdata('success_message'); ?>  
+                            </div>
+                            <?php endif ?>
                         <table id="posts_table" class="display" style="width:100%;text-align:center;">
                             <thead>
                                 <tr>

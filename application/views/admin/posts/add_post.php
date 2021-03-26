@@ -22,10 +22,22 @@
                     <div class="container-fluid">
                         <div class="card-box">
                             <h2 class=" mt-0 mb-3">Add new post</h2>
+                            <?php  if(validation_errors()): ?>
                             <div class="alert alert-danger" role="alert">
                               <?php echo validation_errors(); ?>
                             </div>
-                            <form action="save-post" method="POST" >
+                            <?php endif ?>
+                            <?php  if($this->session->flashdata('error_message')): ?>
+                            <div class="alert alert-danger">
+                                <?= $this->session->flashdata('error_message'); ?>
+                            </div>
+                            <?php endif ?>
+                            <?php  if($this->session->flashdata('success_message')): ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= $this->session->flashdata('success_message'); ?>  
+                            </div>
+                            <?php endif ?>
+                            <form action="save-post" method="POST"  enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" id="simpleinput" name="post_title" class="form-control" value="<?php echo set_value('post_title'); ?>" placeholder="عنوان">
@@ -55,7 +67,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="post_img" class="d-block">Featured Image</label>
-                                    <input type='file' name="post_img" onchange="readURL(this);" />
+                                    <input type='file' name="file_name" onchange="//readURL(this);" />
                                     <img id="blah" src="#" alt="your image" />
                                 </div>
                                 
