@@ -59,6 +59,8 @@ $route['admin/sign_in'] = 'admin/signin';
 $route['admin/post'] = 'admin/posts';
 $route['admin/add-post'] = 'admin/add_post';
 $route['admin/save-post'] = 'admin/save_post';
+$route['admin/setting'] = 'admin/setting';
+
 
 $route['admin/list-post'] = 'admin/list_post';
 $route['admin/book'] = 'admin/books';

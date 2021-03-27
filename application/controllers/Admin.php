@@ -148,6 +148,10 @@ class Admin extends CI_Controller {
         }
 	}
 
+    public function setting(){
+        $this->load->view('admin/setting/setting');
+    }
+
 	public function list_post(){
         
        $data['posts'] = $this->Admin_model->get_all_posts();

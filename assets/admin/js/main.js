@@ -58,7 +58,7 @@ function readURL(input) {
         reader.onload = function (e) {
             $('#blah')
                 .attr('src', e.target.result)
-                .width(150)
+                .width(300)
                 .height(200);
         };
 

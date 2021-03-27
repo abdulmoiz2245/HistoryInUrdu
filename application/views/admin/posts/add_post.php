@@ -67,8 +67,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="post_img" class="d-block">Featured Image</label>
-                                    <input type='file' name="file_name" onchange="//readURL(this);" />
-                                    <img id="blah" src="#" alt="your image" />
+                                    <input type='file' name="file_name" onchange="readURL(this);" />
+                                    <img id="blah" src="#" alt="your image" width="300" height="200" />
                                 </div>
                                 
                                 <div class="form-group">
