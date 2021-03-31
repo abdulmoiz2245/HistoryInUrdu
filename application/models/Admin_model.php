@@ -42,27 +42,27 @@ class Admin_model extends CI_model {
     }
 
     public function get_categories(){
-        $result = $this->db->get('categorie');
+        $result = $this->db->get('categories');
         $top_categore = [];
         $sub_categore = [];
         $i = 0;
         $j = 0;
         if($result->num_rows() > 0):
             foreach($result->result() as $row):
-                if($row->parent_id == 'NULL'){
+                if($row->parent_id == 0){
                     $top_categore['id']  = $row->id;
-                    $top_categore['name'] = $row->name;
+                    $top_categore['name'] = $row->category;
                     $i++;
                     $data['top_categore'][$i]  = $top_categore;
 
                 }else{
                    $sub_categore['id'] = $row->id;
-                   $sub_categore['name'] = $row->name;
+                   $sub_categore['name'] = $row->category;
                    $sub_categore['parent_id'] = $row->parent_id;
 
                     foreach($result->result() as $row1):
                         if( $result->parent_id = $row1->id){
-                            $parent_name = $row1->name;
+                            $parent_name = $row1->category;
                             break;
                         }
                     endforeach;    
