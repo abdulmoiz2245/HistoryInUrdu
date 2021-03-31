@@ -24,6 +24,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?= base_url('admin/categorie') ?>">
+                    <i class="mdi mdi-view-dashboard"></i>
+                    <span> Categorie </span>
+                </a>
+            </li>
+            <li>
                 <a href="<?= base_url('admin/posts') ?>l">
                     <i class="mdi mdi-format-font"></i>
                     <span> Posts </span> 

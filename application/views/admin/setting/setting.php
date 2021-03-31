@@ -1,5 +1,5 @@
 
-            <!-- <pre><?php //var_dump( $categorie) ?></pre> -->
+            <!-- <pre><?php //var_dump( $this->session->userdata());die(); ?></pre> -->
             <?php $this->load->view('admin/layout/header') ?>
             
             <!-- Topbar Start -->
@@ -8,6 +8,13 @@
 
             <!-- ========== Left Sidebar Start ========== -->
             <?php $this->load->view('admin/layout/sidebar') ?>
+
+            <?php
+            $userData = $this->session->userdata();
+
+
+
+            $this->session    ?>
             <style>
             .switchery{background-color:#fff;border:1px solid #dfdfdf;border-radius:20px;cursor:pointer;display:inline-block;height:30px;position:relative;vertical-align:middle;width:50px;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;box-sizing:content-box;background-clip:content-box}.switchery>small{background:#fff;border-radius:100%;box-shadow:0 1px 3px rgba(0,0,0,0.4);height:30px;position:absolute;top:0;width:30px}.switchery-small{border-radius:20px;height:20px;width:33px}.switchery-small>small{height:20px;width:20px}.switchery-large{border-radius:40px;height:40px;width:66px}.switchery-large>small{height:40px;width:40px}
             </style>
@@ -72,6 +79,16 @@
                                 </ul>
                             </div>
                             <!-- right content section -->
+                            <?php  if($this->session->flashdata('error_message')): ?>
+                            <div class="alert alert-danger">
+                                <?= $this->session->flashdata('error_message'); ?>
+                            </div>
+                            <?php endif ?>
+                            <?php  if($this->session->flashdata('success_message')): ?>
+                            <div class="alert alert-success">
+                                <?= $this->session->flashdata('success_message'); ?>
+                            </div>
+                            <?php endif ?>
                             <div class="col-md-9">
                                 <div class="card">
                                     <div class="card-content">
@@ -94,13 +111,13 @@
                                                         </div>
                                                     </div>
                                                     <hr>
-                                                    <form novalidate="">
+                                                    <form method="POST" action="<?=base_url('admin/setting-save/'.$userData['user_id'])?>">
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-username">Username</label>
-                                                                        <input type="text" class="form-control" id="account-username" placeholder="Username" value="hermione007" required="" data-validation-required-message="This username field is required">
+                                                                        <input type="text" class="form-control" id="account-username" name="username" placeholder="Username" value="<?=  $userData['user_name'] ?>" required="" data-validation-required-message="This username field is required">
                                                                     <div class="help-block"></div></div>
                                                                 </div>
                                                             </div>
@@ -108,7 +125,7 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-name">Name</label>
-                                                                        <input type="text" class="form-control" id="account-name" placeholder="Name" value="Hermione Granger" required="" data-validation-required-message="This name field is required">
+                                                                        <input type="text" class="form-control" id="account-name" name="name" placeholder="Name" value="<?=  $userData['name'] ?>" required="" data-validation-required-message="This name field is required">
                                                                     <div class="help-block"></div></div>
                                                                 </div>
                                                             </div>
@@ -116,11 +133,11 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-e-mail">E-mail</label>
-                                                                        <input type="email" class="form-control" id="account-e-mail" placeholder="Email" value="granger007@hogward.com" required="" data-validation-required-message="This email field is required">
+                                                                        <input type="email" class="form-control" id="account-e-mail" name="email" placeholder="Email" value="<?=  $userData['email'] ?>" required="" data-validation-required-message="This email field is required">
                                                                     <div class="help-block"></div></div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
+                                                            <!-- <div class="col-12">
                                                                 <div class="alert alert-warning alert-dismissible mb-2" role="alert">
                                                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                                         <span aria-hidden="true">×</span>
@@ -130,14 +147,15 @@
                                                                     </p>
                                                                     <a href="javascript: void(0);">Resend confirmation</a>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-12">
+                                                            </div> -->
+                                                            <!-- <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="account-company">Company</label>
                                                                     <input type="text" class="form-control" id="account-company" placeholder="Company name">
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                            
                                                                 <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
                                                                     changes</button>
                                                                 <button type="reset" class="btn btn-light">Cancel</button>
@@ -146,13 +164,14 @@
                                                     </form>
                                                 </div>
                                                 <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
-                                                    <form novalidate="">
+                                                <form method="POST" action="<?=base_url('admin/setting-changePassword/'.$userData['user_id'])?>">
+
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-old-password">Old Password</label>
-                                                                        <input type="password" class="form-control" id="account-old-password" required="" placeholder="Old Password" data-validation-required-message="This old password field is required">
+                                                                        <input type="password" class="form-control" required id="account-old-password" name="old_password"  placeholder="Old Password" data-validation-required-message="This old password field is required">
                                                                     <div class="help-block"></div></div>
                                                                 </div>
                                                             </div>
@@ -160,7 +179,7 @@
                                                                 <div class="form-group">
                                                                     <div class="controls">
                                                                         <label for="account-new-password">New Password</label>
-                                                                        <input type="password" name="password" id="account-new-password" class="form-control" placeholder="New Password" required="" data-validation-required-message="The password field is required" minlength="6">
+                                                                        <input type="password"  id="account-new-password" required class="form-control" name="new_password" placeholder="New Password"  data-validation-required-message="The password field is required" minlength="6">
                                                                     <div class="help-block"></div></div>
                                                                 </div>
                                                             </div>
@@ -169,7 +188,7 @@
                                                                     <div class="controls">
                                                                         <label for="account-retype-new-password">Retype New
                                                                             Password</label>
-                                                                        <input type="password" name="con-password" class="form-control" required="" id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
+                                                                        <input type="password" name="retype_password" required class="form-control"  id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
                                                                     <div class="help-block"></div></div>
                                                                 </div>
                                                             </div>
@@ -276,44 +295,44 @@
                                                     </form>
                                                 </div>
                                                 <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
-                                                    <form>
+                                                    <form method="POST" action="<?=base_url('admin/setting-socialLinks/'.$userData['user_id'])?>">
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="account-twitter">Twitter</label>
-                                                                    <input type="text" id="account-twitter" class="form-control" placeholder="Add link" value="https://www.twitter.com">
+                                                                    <input type="text" id="account-twitter" class="form-control"  value="<?=  $userData['twitter'] ?>" name="twitter_account" placeholder="Add link" >
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="account-facebook">Facebook</label>
-                                                                    <input type="text" id="account-facebook" class="form-control" placeholder="Add link">
+                                                                    <input type="text" id="account-facebook" class="form-control" value="<?=  $userData['facebook'] ?>" name="facebook_account" placeholder="Add link">
                                                                 </div>
                                                             </div>
                                                             <div class="col-12">
                                                                 <div class="form-group">
-                                                                    <label for="account-google">Google+</label>
-                                                                    <input type="text" id="account-google" class="form-control" placeholder="Add link">
+                                                                    <label for="account-youtube">Youtube</label>
+                                                                    <input type="text" id="account-youtube" class="form-control" value="<?=  $userData['youtube'] ?>" name="youtube_account" placeholder="Add link">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
+                                                            <!-- <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="account-linkedin">LinkedIn</label>
                                                                     <input type="text" id="account-linkedin" class="form-control" placeholder="Add link" value="https://www.linkedin.com">
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="account-instagram">Instagram</label>
-                                                                    <input type="text" id="account-instagram" class="form-control" placeholder="Add link">
+                                                                    <input type="text" id="account-instagram" class="form-control" value="<?=  $userData['insta'] ?>" name="instagram_account" placeholder="Add link">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-12">
+                                                            <!-- <div class="col-12">
                                                                 <div class="form-group">
                                                                     <label for="account-quora">Quora</label>
                                                                     <input type="text" id="account-quora" class="form-control" placeholder="Add link">
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
                                                                 <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
                                                                     changes</button>

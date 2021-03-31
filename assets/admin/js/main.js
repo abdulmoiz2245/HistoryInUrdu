@@ -1,6 +1,32 @@
 $(document).ready(function() {
   $('#posts_table').DataTable();
-} );
+  $("#error_alert").alert('close');
+  $("#success_alert").alert('close');
+
+  $("#form_categorie").submit(function (event) {
+      var formData = {
+        categorie: $("#categorie_name").val(),
+        parent_categorie: $("#categorie").val(),
+      };
+
+      $.ajax({
+      type: "POST",
+      url: "save-categorie",
+      data: formData,
+      }).done(function (data) {
+          if(data){
+
+              $('#success_alert').alert();
+              $("#error_alert").alert('close');
+          }else{
+              $('#error_alert').alert();
+              $("#success_alert").alert('close');
+          }
+      });
+
+      event.preventDefault();
+  });
+});
 
 $('li :checkbox').on('click', function () {
     var $chk = $(this), $li = $chk.closest('li'), $ul, $parent;
