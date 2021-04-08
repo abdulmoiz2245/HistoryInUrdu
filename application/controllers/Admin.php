@@ -77,6 +77,77 @@ class Admin extends CI_Controller {
         }
     }
 
+    //Maps
+
+	public function add_map(){
+        // $data['categore'] = $this->Admin_model->get_categories();
+        $data['title'] = 'Add Map Admin Panel';
+		$this->load->view('admin/maps/add_map',$data);
+	}
+
+	public function save_map(){
+
+        if ($this->input->server('REQUEST_METHOD') === 'POST') {
+
+            $this->form_validation->set_rules('map_title', 'Ttile', 'trim|required');
+            
+            $this->form_validation->set_rules('map_body', 'Body', 'trim|required');
+           if ($this->form_validation->run() == FALSE)
+            {
+                $data['title'] = 'Add Map Admin Panel';
+                $this->load->view('admin/maps/add_map',$data);
+            }else{
+                $extension = pathinfo($_FILES['file_name']['name'], PATHINFO_EXTENSION);
+                $unique_no = uniqid(rand()) . time();
+                $filename = $unique_no . '.' . $extension;
+
+                $target_path = "./uploads/admin/";
+                 
+                $config['upload_path']          = $target_path;
+                $config['allowed_types']        = 'gif|jpg|jpeg|png';
+                $config['file_name'] = $filename;
+                $config['overwrite'] = TRUE;
+                $config['remove_spaces'] = TRUE;
+
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ( !$this->upload->do_upload('file_name'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+                        $this->session->set_flashdata('error_message', 'Unknwon Error Occure Contact to Abdul Moiz');
+                        redirect('admin/add-map');
+
+                }else{
+                        $result = $this->Admin_model->save_map($filename);
+                        if($result){
+                            $this->session->set_flashdata('success_message', 'Map added successfully.');
+                            redirect('admin/list-map');
+                        }else{
+                            $this->session->set_flashdata('error_message', 'Database error occure.');
+                            redirect('admin/add-map');
+                        }
+                }
+               
+            }
+           
+          
+        } else {
+            $this->session->set_flashdata('error_message', 'Unknwon Error Occure Contact to Abdul Moiz');
+            redirect('admin/add-map');
+
+        }
+	}
+
+
+	public function list_map(){
+        
+       $data['maps'] = $this->Admin_model->get_all_maps();
+       $data['title'] = 'List Map Admin Panel';
+
+		$this->load->view('admin/maps/list_map',$data);
+	}
+
+
 	//Posts
 
 	public function add_post(){

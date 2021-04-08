@@ -44,6 +44,20 @@
                 </ul>
             </li>
             <li>
+                <a href="<?= base_url('admin/maps') ?>l">
+                    <i class="mdi mdi-format-font"></i>
+                    <span> Maps </span> 
+                </a>
+                <ul class="nav-second-level nav" aria-expanded="false">
+                    <li>
+                        <a href="<?= base_url('admin/add_map') ?>">Add New Mapt</a>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('admin/list_map') ?>">List Maps</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="<?= base_url('admin/book') ?>">
                     <i class="mdi mdi-format-font"></i>
                     <span> Books </span> 

@@ -77,7 +77,7 @@
  }
 
  body {
-     line-height: 1;
+     line-height: 1
  }
 
  article,
@@ -135,7 +135,6 @@
  html,
  body {
      overflow-x: hidden !important;
-     font-family: 'Nafees Nastaleeq' !important;
  }
 
  * {
@@ -191,11 +190,6 @@
  .separator a {
      margin-left: 0 !important;
      margin-right: 0 !important
- }
-
- .sidebar_2 a {
-     text-decoration: none;
-     color: black !important;
  }
 
  .separator {
@@ -933,37 +927,7 @@
  .navigation-portrait .nav-dropdown-horizontal .submenu-indicator.submenu-indicator-up {
      transform: rotate(-180deg)
  }
-
- 
-
- .megamenu-list>li>a {
-     width: 100%;
-     padding: 10px 15px;
-     display: inline-block;
-     color: #343a40;
-     text-decoration: none;
-     font-size: 18px;
-     font-weight: 200;
-     transition: .2s all ease-in;
- }
-
- .megamenu-list>li>a:hover {
-     background-color: var(--lightbrown-color);
-     color: #fff;
- }
-
- .megamenu-list>li.megamenu-list-title>a {
-     font-size: 12px;
-     font-weight: 200;
-     text-transform: uppercase;
-     color: #343a40
- }
-
- .megamenu-list>li.megamenu-list-title>a:hover {
-     background-color: transparent
- }
-
- .navigation-landscape .list-col-2 {
+.navigation-landscape .list-col-2 {
      width: 50%
  }
 
@@ -1064,21 +1028,16 @@
      }
 
  }
-
- @media only screen and (max-width: 991px) {
-     .nav-header img {
-         width: 60px;
-         height: 40px;
-                  margin-bottom: 11.5px;
-
+ @media only screen and (max-width: 991px){
+      .nav-header img{
+margin-bottom: 11.5px;
      }
-
-     .align-to-right {
+      .align-to-right {
          flex-direction: column;
          display: flex;
 
      }
- }
+     }
 
  .container,
  .container-fluid,
@@ -1094,6 +1053,7 @@
  }
 
  /**** SECTION1 BG_posts ****/
+
  .section1_bg_posts img {
      width: 100%;
      height: 400px;
@@ -1135,19 +1095,31 @@
      font-weight: 200;
  }
 
- /**** Section-Posts *****/
- .section_posts {
-     margin-top: 100px;
+ /*** SECTION2 POSTS *****/
+
+ .center_posts {
+     display: flex;
+     justify-content: space-between;
+     /*flex-wrap: wrap;*/
+     align-items: center;
+     flex-direction: row-reverse;
+     margin-top: 90px;
+ }
+
+ .left {
+     width: 100%;
+ }
+
+ .right {
+     /*margin-top: -35%;*/
+     padding-left: 30px;
  }
 
  .left_main {
-     overflow: hidden;
      display: flex;
-     
+     justify-content: center;
      flex-direction: column;
      align-items: center;
-     padding-right: 15px;
-     padding-left: 15px;
  }
 
  .post_heading {
@@ -1191,12 +1163,9 @@
  }
 
  .post_heading h1 {
-     font-size: 45px;
-     /* word-spacing: 8px; */
-     font-weight: 600 !important;
-     padding-top: 44px;
-    padding-bottom: 26px;
-    line-height: 78px;
+     font-size: 40px;
+     word-spacing: 8px;
+     font-weight: 100 !important;
  }
 
  .icons_count {
@@ -1222,36 +1191,36 @@
      padding-right: 5px;
  }
 
- .image_post img {
-     max-height: 100%;
-     max-width: 100%;
+ .image_post {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
  }
 
- .row {
-     margin: 0 !important;
+ .image_post img {
+     max-width: 750px;
+     min-width: 300px;
+     height: 400px;
+     min-height: 100%;
  }
 
  .desp_post p {
-     /* padding-top: 50px; */
-     line-height: 2;
+     padding-left: 40px;
+     padding-right: 60px;
      text-align: right;
      font-size: 17px;
-     word-spacing: 7px;
+     word-spacing: 3px;
  }
-
 
  /**** SIDEBAR ****/
- .col_sidebar {
-     flex-wrap: wrap;
-     /* height: 2500px; */
- }
-
  .top_recipes,
  .bottom_recipes {
      max-width: 335px;
      min-width: 230px;
-     padding-top: 20px;
+     /*height: 370px;*/
      text-align: center;
+     /*padding-top: 20px;*/
  }
 
  .top_recipes img {
@@ -1266,7 +1235,11 @@
      flex-direction: column;
      align-items: center;
      text-align: center;
-     max-width: 320px;
+     width: 300px;
+     padding-left: 20px;
+     margin-left: 20px;
+     margin-right: 20px;
+     padding-right: 20px;
  }
 
  .recipes_items_sidebar .bottom_recipes h4 {
@@ -1329,26 +1302,22 @@
      border-bottom: 4px solid var(--hover1-color);
  }
 
- .sidebar_recent_post a:hover {
-     color: black !important;
- }
-
  .sidebar_2 a {
      text-decoration: none;
-     color: black !important;
+     color: black;
      transition: .3s all ease-in;
  }
 
  .heading_sidebar_2 .sub_3 {
      word-spacing: 0.9px;
-     font-family: 'Nafees Nastaleeq';
+
  }
 
  .sidebar_recent_post .heading_sidebar_2 {
      font-family: 'Nafees Nastaleeq';
      font-size: 25px;
-     padding: 5px 0px;
-     width: 320px;
+     padding: 0px 80px;
+     width: 300px;
      border: 2px solid var(--btn-color);
      border-radius: 5px;
      margin-bottom: 20px;
@@ -1359,8 +1328,8 @@
      font-family: 'Nafees Nastaleeq';
      font-size: 25px;
      font-weight: 700;
-     padding: 5px 0px;
-     width: 320px;
+     padding: 0px 80px;
+     width: 330px;
      border: 2px solid var(--btn-color);
      border-radius: 5px;
      margin-bottom: 20px;
@@ -1369,6 +1338,7 @@
  .sidebar-items {
      display: flex;
      justify-content: space-between;
+     align-items: center;
      padding-bottom: 20px;
      flex-direction: row-reverse;
  }
@@ -1388,13 +1358,10 @@
  }
 
  .sidebar_recent_post .right_recent_sidebar h2 {
-    
-        font-size: 20px;
-        font-weight: 600 !important;
-        /* word-spacing: 1px; */
-        line-height: 35px;
-        transition: .1s all ease-in;
-    
+     font-size: 20px;
+     font-weight: 600 !important;
+     word-spacing: 2px;
+     transition: .1s all ease-in;
  }
 
  .sidebar_recent_post .right_recent_sidebar h2:hover {
@@ -1415,48 +1382,53 @@
      color: black;
  }
 
- .sticky {
-     position: relative;
-     top: -10%;
-     overflow-y: hidden;
-     overflow-x: hidden;
+ .right_2 {
+     margin-top: -200px;
  }
 
- /**** SECTION BOTTOM POSTS ****/
+ /*.right_3 {
+     margin-top: -900px;
+ }*/
+
  .recent_bottom_posts {
-     padding: 50px 0;
+     padding: 40px 0;
+
  }
 
- .recipes_items_main {
+ .recent_bottom_posts_center {
+     display: flex;
+     justify-content: center;
+     /*flex-wrap: wrap;*/
+     /*flex-direction: row-reverse;*/
+
+ }
+
+ .recent_bottom_posts_center .recipes_items_main {
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
      text-align: right;
+     flex-direction: column;
+     padding-left: 15px;
      padding-top: 50px;
- }
-
- .recipes_items_main p {
-     line-height: 2;
  }
 
  .snip1543 {
      background-color: #fff;
      color: #ffffff;
-     font-family: 'Nafees Web Naskh' !important;
+     font-family: 'Nafees Web Naskh';
      font-size: 16px;
-     margin: 10px 0;
+     margin: 10px;
      max-width: 335px;
-     min-width: 280px;
+     min-width: 230px;
      height: 272px;
      border-radius: 5px;
      overflow: hidden;
      position: relative;
      text-align: left;
-     /*width: 100%;*/
+     width: 100%;
      -webkit-transform: translateZ(0);
      transform: translateZ(0);
- }
-
- .recipes_items {
-     max-width: 335px;
-     min-width: 280px;
  }
 
  .snip1543 *,
@@ -1552,12 +1524,13 @@
      font-size: 36px;
      font-weight: 200;
      line-height: 1em;
+     text-transform: uppercase;
  }
 
  .recent_bottom_posts h6 {
-     font-size: 25px !important;
-     padding: 10px 0 !important;
-     font-weight: 200 !important;
+     font-size: 25px;
+     padding: 10px 0;
+     font-weight: 200;
      font-family: 'Nafees Nastaleeq';
  }
 
@@ -1588,7 +1561,6 @@
  .recent_bottom_posts h1 {
      text-align: center;
      font-size: 40px;
-     font-weight: 600;
      /*padding: 60px 0 10px 0;*/
  }
 
@@ -1644,272 +1616,6 @@
      transition-delay: 0.1s;
  }
 
- /**** COMMENTS ****/
- input:focus {
-     border: 1px solid var(--lightbrown-color) !important;
-
- }
-
- .section_comments {
-     background-color: rgba(0, 0, 0, .02);
- }
-
- .heading_comment {
-     padding: 90px 0 40px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     text-align: center !important;
- }
-
- .comments-details button.btn.dropdown-toggle,
- .comments-details .total-comments {
-     font-size: 18px;
-     font-weight: 500;
-     color: #5e5e5e;
- }
-
- .comments-details {
-     padding: 15px 15px;
- }
-
- .comments .comments .dropdown,
- .comments .dropup {
-     position: relative;
- }
-
- .comment-meta button:first-child {
-     background-color: black;
-     border: none;
-     color: #fff;
-     padding: 8px 25px;
-     border-radius: 15px;
-     font-size: 14px;
- }
-
- .comments button {
-     background-color: var(--lightbrown-color);
-     border: none;
-     color: #fff;
-     padding: 8px 20px;
-     border-radius: 15px;
-     font-size: 14px;
- }
-
- .comments .comment-box {
-     width: 100%;
-     float: left;
-     height: 100%;
-     /*background-color: #fff;*/
-     padding: 10px 30px 10px 30px;
-     margin-bottom: 15px;
-     border-radius: 5px;
-     /*border: 1px solid #ddd;*/
- }
-
- .comments .add-comment {
-     background-color: transparent;
-     border: none;
-     position: relative;
-     margin-bottom: 50px;
- }
-
- .comments .commenter-pic {
-     width: 50px;
-     height: 50px;
-     display: inline-block;
-     border-radius: 100%;
-     border: 2px solid #fff;
-     overflow: hidden;
-     background-color: #fff;
- }
-
- .comments .add-comment .commenter-name {
-     width: 100%;
-     padding-left: 85px;
-     position: absolute;
-     top: 20px;
-     left: 0px;
- }
-
- .comments {
-     font-family: Arial, Helvetica, sans-serif !important;
- }
-
- .comments .add-comment input {
-     /*word-spacing: px;*/
-     font-family: Arial, Helvetica, sans-serif;
-     font-size: 17px;
-     border-top: 0px;
-     border: 1px solid rgb(225, 225, 225);
-     border-radius: 30px;
-     height: 48px;
-     background: transparent;
-     background: #fff;
-     outline: 0px;
-     width: 100%;
-     padding: 0 20px;
-     text-align: left;
-     font-weight: normal;
- }
-
- .form-group button,
- .comment-meta button,
- .comment-box button {
-     font-family: Arial, Helvetica, sans-serif;
- }
-
- textarea.form-control {
-     font-family: Arial, Helvetica, sans-serif;
-     font-size: 17px;
-     border-top: 0px;
-     border: 1px solid rgb(225, 225, 225);
-     border-radius: 30px;
-     height: 48px;
-     background: transparent;
-     background: #fff;
-     outline: 0px;
-     width: 100%;
-     padding: 20px;
-     text-align: left;
-     font-weight: normal;
- }
-
- textarea:hover,
- input:hover,
- textarea:active,
- input:active,
- textarea:focus,
- input:focus,
- button:focus,
- button:active,
- button:hover,
- label:focus,
- .btn:active,
- .btn.active {
-     outline: 0px !important;
-     -webkit-appearance: none;
-     box-shadow: none !important;
- }
-
- .form-control:focus {
-     border-color: var(--lightbrown-color) !important;
- }
-
- .comments .add-comment input:focus,
- .form-control:focus {
-     border-color: var(--darkbrown-color) !important;
-     border-width: 1px;
- }
-
- .comments .add-comment button[type=submit] {
-     background-color: #f5f5f5;
-     margin: 10px;
-     font-size: 14px;
-     float: right;
-     line-height: 35px;
-     text-decoration: none;
-     background-color: var(--btn-color);
-     padding: 0 15px !important;
-     color: white;
-     border-radius: 15px;
-     transition: .2s all ease-in;
- }
-
- .comments .add-comment button {
-     background-color: black;
-     margin: 10px;
-     font-size: 14px;
-     float: right;
-     line-height: 35px;
-     text-decoration: none;
-     padding: 0 15px !important;
-     color: #fff;
-     border-radius: 15px;
-     transition: .2s all ease-in;
- }
-
- .comments .add-comment button:hover {
-     background-color: black;
-     color: #eee;
- }
-
- .comments .commenter-name .comment-time {
-     font-weight: normal;
-     margin-left: 8px;
-     font-size: 15px;
- }
-
- .commenter-name a {
-     color: var(--lightbrown-color);
-     font-family: Arial, Helvetica, sans-serif !important;
- }
-
- .commenter-name a:hover {
-     color: black;
- }
-
- .comments p.comment-txt {
-     font-size: 15px;
-     font-family: Arial, Helvetica, sans-serif;
-     /*border-bottom: 1px solid #ddd;*/
-     padding: 0px 60px;
- }
-
- .comments .commenter-name {
-     display: inline-block;
-     position: relative;
-     top: -20px;
-     left: 10px;
-     font-size: 16px;
-     font-weight: bold;
- }
-
- .comments .comment-meta {
-     font-size: 17px;
-     font-family: 'Nafees Nastaleeq';
-     color: #333;
-     padding: 2px 5px 0px;
-     line-height: 20px;
-     float: right;
- }
-
- .comment-reply {
-     background-color: blue;
- }
-
- .comments .reply-box {
-     display: none;
- }
-
- .comments .replied {
-     background-color: #fff;
-     width: 95%;
-     float: right;
-     margin-top: 15px;
- }
-
- /*======Responsive CSS=======*/
- @media (max-width: 767px) {
-     .comments .commenter-name {
-         font-size: 13px;
-         top: -5px;
-     }
-
-     .comments .commenter-pic {
-         width: 40px;
-         height: 40px;
-     }
-
-     .comments .commenter-name a {
-         display: block;
-     }
-
-     .comments .commenter-name .comment-time {
-         display: block;
-         margin-left: 0px;
-     }
- }
 
  /**** FOOTER ****/
  footer {

@@ -92,18 +92,18 @@ class Admin_model extends CI_model {
             foreach($result->result() as $row):
                 if($row->parent_id == NULL){
                     $top_categore['id']  = $row->id;
-                    $top_categore['name'] = $row->name;
+                    $top_categore['name'] = $row->category;
                     $i++;
                     $data['top_categore'][$i]  = $top_categore;
 
                 }else{
                    $sub_categore['id'] = $row->id;
-                   $sub_categore['name'] = $row->name;
+                   $sub_categore['name'] = $row->category;
                    $sub_categore['parent_id'] = $row->parent_id;
 
                     foreach($result->result() as $row1):
                         if( $result->parent_id = $row1->id){
-                            $parent_name = $row1->name;
+                            $parent_name = $row1->category;
                             break;
                         }
                     endforeach;    
@@ -129,9 +129,9 @@ class Admin_model extends CI_model {
         $categories_id = preg_split ("/\,/", $categories_id_string);
         foreach ($categories_id as $categorie_id) {
            $this->db->where('id' , $categorie_id); 
-           $name =  $this->db->get('categorie')->result();
+           $name =  $this->db->get('categories')->result();
            
-           $categorie_name[$i] = $name[0]->name;
+           $categorie_name[$i] = $name[0]->category;
            $i++;
         }
         
@@ -161,6 +161,7 @@ class Admin_model extends CI_model {
             'tags' => $this->input->post('tags'),
             'admin_id' => 1,
             'image' => $filename,
+            'route_name' => $this->input->post('route_name'),
             'body' => $this->input->post('post_body'),
             'views' => 0,
             'num_comment' => 0,
@@ -174,6 +175,29 @@ class Admin_model extends CI_model {
          }
     }
 
+    public function save_map($filename){
+
+        
+        $data = array(
+
+          'title' => $this->input->post('map_title'),
+          'tags' => $this->input->post('tags'),
+          'admin_id' => 1,
+          'image' => $filename,
+          'views' => 0,
+          'route_name' => $this->input->post('route_name'),
+          'body' => $this->input->post('map_body'),
+          'views' => 0,
+          'modified_at' => date('Y-m-d H:i:s', time()),
+      );
+       $result = $this->db->insert('maps', $data);
+       if($result){
+           return true;
+       }else{
+           return false;
+       }
+  }
+
     public function save_book($img_upload , $file_upload){
         $categories_id =  implode(', ', $this->input->post('categorie'));
           $data = array(
@@ -184,6 +208,7 @@ class Admin_model extends CI_model {
             'admin_id' => 1,
             'image' => $img_upload,
             'book_file' =>$file_upload ,
+            'route_name' => $this->input->post('route_name'),
             'body' => $this->input->post('book_body'),
             'views' => 0,
             'num_comment' => 0,
@@ -206,7 +231,7 @@ class Admin_model extends CI_model {
            $this->db->where('id' , $categorie_id); 
            $name =  $this->db->get('book_category')->result();
            
-           $categorie_name[$i] = $name[0]->name;
+           $categorie_name[$i] = $name[0]->category;
            $i++;
         }
         
@@ -224,6 +249,13 @@ class Admin_model extends CI_model {
 
         return $book->result();
 
+    }
+
+    public function get_all_maps(){
+        $book = $this->db->get('maps');
+
+
+        return $book->result();
     }
 
     public function get_categories_tree(){

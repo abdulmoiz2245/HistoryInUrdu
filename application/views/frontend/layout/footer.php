@@ -1,40 +1,23 @@
 <footer>
-
-<div class="container">
-
-    <div class="center_footer">
-
-        <div class="left">
-
-            <ul>
-
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-
-            </ul>
-
+        <div class="container">
+            <div class="center_footer">
+                <div class="left_footer">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+                <div class="right_footer">
+                    <ul>
+                        <li><a href="../index.html">Copyright 2021 - All Rights Reserved
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-
-        <div class="right">
-
-            <ul>
-
-                <li><a href="index.html">Copyright 2021 - All Rights Reserved</a></li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</div>
-
-</footer>
+    </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 
