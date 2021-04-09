@@ -94,6 +94,75 @@ class User_model extends CI_model {
         }
     }
 
+    public $categorie_list45 = array();
+    public $first_exec34 = false;
+    public function get_all_categories_by_categorie_id_as($id){
+        
+        $this->db->where('parent_id', $id);
+        $results = $this->db->get('categories')->result();
+        if($this->first_exec34 == false){
+           
+            $this->db->where('id', $id);
+            $results1 = $this->db->get('categories')->result();
+           // var_dump(  $results1);
+            array_push($this->categorie_list45 , $results1);
+           
+            $this->first_exec34 = true;
+        }
+        if($results){
+           
+            array_push($this->categorie_list45 , $results);
+    
+            
+            foreach($results as $result){
+                $this->get_all_categories_by_categorie_id_as($result->id);
+            }
+            if($result){
+                
+                
+                return $this->array_2d_to_1d($this->categorie_list45);
+            }
+        }
+        else{
+            return $this->array_2d_to_1d($this->categorie_list45);
+        }
+    }
+
+    public $categorie_list45667 = array();
+    public $first_exec3459 = false;
+    public function get_all_categories_by_categorie_id_asde($id){
+        
+        $this->db->where('parent_id', $id);
+        $results = $this->db->get('categories')->result();
+        if($this->first_exec3459 == false){
+           
+            $this->db->where('id', $id);
+            $results1 = $this->db->get('categories')->result();
+           // var_dump(  $results1);
+            array_push($this->categorie_list45667 , $results1);
+           
+            $this->first_exec3459 = true;
+        }
+        if($results){
+           
+            array_push($this->categorie_list45667 , $results);
+    
+            
+            foreach($results as $result){
+                $this->get_all_categories_by_categorie_id_asde($result->id);
+            }
+            if($result){
+                
+                
+                return $this->array_2d_to_1d($this->categorie_list45667);
+            }
+        }
+        else{
+            return $this->array_2d_to_1d($this->categorie_list45667);
+        }
+    }
+
+
     public $categorie_list_book = array();
     public $first_exec3 = false;
     public function get_all_book_categories_by_categorie_id($id){
@@ -146,6 +215,44 @@ class User_model extends CI_model {
         }
 
     }
+    public $post_list_2 = array();
+    public function get_post_by_categories_id_as($categories){
+        // var_dump($categories);
+         foreach($categories as $categorie){
+             $this->db->where('categorie_id', $categorie->id);
+             $results = $this->db->get('posts')->result();
+             if($results)
+             array_push($this->post_list_2 , $results);
+ 
+         }
+ 
+         if($this->post_list_2){
+             return $this->post_list_2;
+         }else{
+             return false;
+         }
+ 
+     }
+
+     public $post_list_3 = array();
+     public function get_post_by_categories_id_asd($categories){
+         // var_dump($categories);
+          foreach($categories as $categorie){
+              $this->db->where('categorie_id', $categorie->id);
+              $results = $this->db->get('posts')->result();
+              if($results)
+              array_push($this->post_list_3 , $results);
+  
+          }
+  
+          if($this->post_list_3){
+              return $this->post_list_3;
+          }else{
+              return false;
+          }
+  
+      }
+   
     public $post_list1 = array();
     public function get_books_by_categories_id($categories){
         // var_dump($categories);

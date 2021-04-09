@@ -129,7 +129,7 @@ function get_month_name($num){
             </div>
         </div>
     </section>
-    <section class="recent_bottom_posts" style="margin-bottom:200px">
+    <!-- <section class="recent_bottom_posts" style="margin-bottom:200px">
         <div class="container">
             <h1 class="text-center">حالیہ پوسٹس
             </h1>
@@ -140,8 +140,7 @@ function get_month_name($num){
                             <figure class="snip1543">
                                 <img src="../Assets/Images/Mongol Empire.jpg" />
                                 <figcaption>
-                                    <!-- <h3>jhjمنگول سلطنت</h3>
-                                <p>مزید پڑھنے کے لئے کلک کریں</p> -->
+                                 
                                 </figcaption>
                                 <a href="post_4.html">
                                 </a>
@@ -196,7 +195,7 @@ function get_month_name($num){
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <section class="section_comments" style="display:none">
         <div class="container">
             <div class="row justify-content-md-center heading_comment">

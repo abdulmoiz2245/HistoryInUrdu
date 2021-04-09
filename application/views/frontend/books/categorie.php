@@ -102,7 +102,8 @@ function get_month_name($num){
                                     </div>
                                 <?php endforeach; ?>
                             <?php }else{ ?>
-                            <h2 style="text-align: center; margin-top:150px">کوئی پوسٹ نہیں ملی</h2>
+                                <h2 style="text-align: center;/* margin-top: 164px; */padding-top: 90px;margin: auto;">کوئی پوسٹ نہیں ملی</h2>
+
                             <?php } ?>
                         </div>
                     </div>

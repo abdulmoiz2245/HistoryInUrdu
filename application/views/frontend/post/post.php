@@ -77,7 +77,9 @@ $this->load->view('frontend/layout/header' ,$data);
                             <img src="<?= base_url('Uploads/admin') ?>/<?= $post->image ?>" alt="">
                         </div>
                         <div class="row">
-                            <div class="desp_post">
+                            <div class="desp_post" style="
+    padding-top: 67px;
+">
                                 <?= $post->body ?>
                             </div>
                         </div>
@@ -221,7 +223,7 @@ $this->load->view('frontend/layout/header' ,$data);
                                         <img src="../Assets/Images/photo placeholder.jpg" class="img-fluid">
                                     </span>
                                     <span class="commenter-name">
-                                        <a href="#"><?= $this->input->cookie('comment_user',true) ?></span>
+                                        <a ><?= $this->input->cookie('comment_user',true) ?></span>
                                     </span>
                                     <div class="commenter-name" style="
                                             /* left: 186px; */
@@ -276,7 +278,7 @@ $this->load->view('frontend/layout/header' ,$data);
                                         <img src="../Assets/Images/photo placeholder.jpg" class="img-fluid">
                                     </span>
                                     <span class="commenter-name">
-                                        <a href="#"><?=  $comment->name ?></a> <span class="comment-time">2 hours ago</span>
+                                        <a ><?=  $comment->name ?></a> <span class="comment-time">2 hours ago</span>
                                     </span>
                                     <p class="comment-txt more"><?= $comment->body ?></p>
                                     <div class="comment-meta">
@@ -308,7 +310,7 @@ $this->load->view('frontend/layout/header' ,$data);
                                                 <img src="../Assets/Images/photo placeholder.jpg" class="img-fluid">
                                             </span>
                                             <span class="commenter-name">
-                                                <a href="#"><?= $comment1->name ?></a> <span class="comment-time">2 hours ago</span>
+                                                <a ><?= $comment1->name ?></a> <span class="comment-time">2 hours ago</span>
                                             </span>
                                             <p class="comment-txt more"><?= $comment1->body ?></p>
                                         </div>

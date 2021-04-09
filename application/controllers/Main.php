@@ -164,5 +164,39 @@ class Main extends CI_Controller {
       $this->load->view('frontend/maps/map'  ,$data );
 
     }
+
+    
+    public function view_blog(){
+
+        $id  =   $this->User_model->get_categorie_by_route_name('history_of_islam');
+        // echo $id;
+        $data['categories1']= $this->User_model->get_all_categories_by_categorie_id($id);
+        $data['posts1'] = $this->User_model->get_post_by_categories_id( $data['categories1']);
+
+        $id1  =   $this->User_model->get_categorie_by_route_name('history_of_subcontinent');
+       
+         $data['categories2']= $this->User_model->get_all_categories_by_categorie_id_as($id1);
+         
+         $data['posts2'] = $this->User_model->get_post_by_categories_id_as( $data['categories2']);
+      
+
+         
+        $id2  =   $this->User_model->get_categorie_by_route_name('history_of_world');
+       
+         $data['categories3']= $this->User_model->get_all_categories_by_categorie_id_asde($id2);
+      
+         $data['posts3'] = $this->User_model->get_post_by_categories_id_asd( $data['categories3']);
+         $data['recent_posts'] = $this->User_model->get_recent_posts();
+         $data['popular_categories'] = $this->User_model->get_popular_categorie();
+        
+         $data['css'] = 'categories.css';
+         $this->load->view('frontend/blog' , $data);
+
+
+   }
+
+   public function cantact_us(){
+       $this->load->view('frontend/contact-us');
+   }
  
 }

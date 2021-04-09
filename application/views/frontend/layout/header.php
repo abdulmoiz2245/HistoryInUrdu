@@ -47,33 +47,7 @@
 
 
 <body style="    background: rgba(0, 0, 0, 0) url('https://www.ahlesunnatpak.com/images/icons/Had-bg.jpg');">
-<div class="news-ticker">
-        <div class="container-fluid">
-            <div class="row">
-                 <div class="col-md-13">
-                    <div class="d-flex justify-content-between align-items-center breaking-news bg-white" style="display: flex !important; flex-direction: row-reverse !important;">
-                        <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-news py-1 text-white px-1 news"><span class="d-flex align-items-center">&nbsp;تازہ ترین خبر
-                            </span></div>
-                        <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> <a href="#">جزیرہ نما آیبیریا جو کہ ہسپانیہ کے نام سے جانا جاتا ہے۔</a>
-                            <span class="dot"></span> <a href="#">عرب میں اسلام آنے کے بعد مسلمانوں کی فتوحات کا دور شروع ہوتا ہے ۔ </a> <span class="dot"></span> <a href="#">اور اب مسلمان بحر اوقیانوس
-                                کو عبور کر کے یورپ داخل ہونا چاہتے تھے۔
-                            </a>
-                            <span class="dot"></span> <a href="#">بحر اوقیانوس کے اُس پار ہسپانیہ تھا جہاں پر گاتھ خاندان کی حکومت تھی
-                            </a>
-                            <span class="dot"></span> <a href="#">بحر اوقیانوس کے اُس پار ہسپانیہ تھا جہاں پر گاتھ خاندان کی حکومت تھی
-                            </a>
-                            <span class="dot"></span> <a href="#">بحر اوقیانوس کے اُس پار ہسپانیہ تھا جہاں پر گاتھ خاندان کی حکومت تھی
-                            </a>
-                            <span class="dot"></span> <a href="#">بحر اوقیانوس کے اُس پار ہسپانیہ تھا جہاں پر گاتھ خاندان کی حکومت تھی
-                            </a>
-                            <span class="dot"></span> <a href="#">بحر اوقیانوس کے اُس پار ہسپانیہ تھا جہاں پر گاتھ خاندان کی حکومت تھی
-                            </a>
-                        </marquee>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <header class="header_area">
 
         <div class="main_header_area animated">
@@ -86,7 +60,7 @@
 
                     <div class="nav-header">
 
-                        <a class="nav-brand" href="../index.html"><img src="<?= base_url("assets/frontend") ?>/Images/Logo.png" alt=""></a>
+                        <a class="nav-brand" href="<?= base_url() ?>"><img src="<?= base_url("assets/frontend") ?>/Images/Logo.png" alt=""></a>
 
                         <div class="nav-toggle"></div>
 
@@ -122,7 +96,7 @@
 
                     <ul class="nav-menu align-to-right">
                         <li>
-                            <a href="index.html">ہوم </a>
+                            <a href="<?= base_url() ?>">ہوم </a>
                         </li>
                         <li>
                             <a href="
@@ -471,10 +445,10 @@
                             <a href="<?= base_url() ?>/maps">نقشہ</a>
                         </li>
                         <li>
-                            <a href="Pages/blog.html">بلاگ</a>
+                            <a href="<?= base_url() ?>/blog">بلاگ</a>
                         </li>
                         <li>
-                            <a href="Pages/Login_or_Signup.html">لاگ ان /رجسٹر</a>
+                            <a href="<?= base_url() ?>/contact"> رابطہ کریں</a>
                         </li>
                     </ul>
 
